@@ -65,6 +65,10 @@
             color: green;
             font-weight: bold;
         }
+        .center-image {
+            display: block;
+            margin: 0 auto;
+        }
         .transparent-box {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
@@ -160,7 +164,7 @@
         detailsDiv.innerHTML = `
             <div class="transparent-box">
                 <h3>${restaurant.name}</h3>
-                <img src="${restaurant.image}" alt="${restaurant.name} Image" style="width: 300px; height: auto;">
+                <img src="${restaurant.image}" alt="${restaurant.name} Image" class="center-image" style="width: 300px; height: auto;">
                 <p><strong>Address:</strong> <a href="https://maps.google.com?q=${restaurant.address}" target="_blank">${restaurant.address}</a></p>
     
                 <!-- Kyle's details -->

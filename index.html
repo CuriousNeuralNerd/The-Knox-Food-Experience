@@ -67,90 +67,106 @@
 </header>
 
 <main>
-    <table>
+    <table id="restaurant-table">
         <thead>
             <tr>
+                <th>Rank</th>
                 <th>Restaurant Name</th>
                 <th>My Score</th>
                 <th>Her Score</th>
+                <th>Combined Score</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><span class="toggle-details" onclick="toggleDetails('restaurant1')">Restaurant 1</span></td>
-                <td>8.5</td>
-                <td>8.4</td>
-            </tr>
-            <tr>
-                <td><span class="toggle-details" onclick="toggleDetails('restaurant2')">Restaurant 2</span></td>
-                <td>9.1</td>
-                <td>8.8</td>
-            </tr>
+            <!-- Restaurant data will be inserted here dynamically -->
         </tbody>
     </table>
 
-    <!-- Restaurant 1 Details -->
-    <div id="restaurant1" class="restaurant-details">
-        <p><strong>Address:</strong> <a href="https://maps.google.com?q=restaurant1+address" target="_blank">123 Main St, Knoxville, TN</a></p>
-        <p><strong>What we ordered:</strong> I had steak, she had salad.</p>
-        <img src="restaurant1.jpg" alt="Restaurant 1 Image" style="width: 300px; height: auto;">
-        
-        <table class="atmosphere-table">
-            <tr>
-                <td>Atmosphere</td>
-                <td>Great</td>
-                <td>Good</td>
-                <td>Okay</td>
-                <td>Meh</td>
-                <td>Bad</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td><span class="checkmark">✔</span></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
-
-    <!-- Restaurant 2 Details -->
-    <div id="restaurant2" class="restaurant-details">
-        <p><strong>Address:</strong> <a href="https://maps.google.com?q=restaurant2+address" target="_blank">456 Elm St, Knoxville, TN</a></p>
-        <p><strong>What we ordered:</strong> I had pasta, she had pizza.</p>
-        <img src="restaurant2.jpg" alt="Restaurant 2 Image" style="width: 300px; height: auto;">
-        
-        <table class="atmosphere-table">
-            <tr>
-                <td></td>
-                <td>Great</td>
-                <td>Good</td>
-                <td>Okay</td>
-                <td>Meh</td>
-                <td>Bad</td>
-            </tr>
-            <tr>
-                <td>Atmosphere</td>
-                <td></td>
-                <td><span class="checkmark">✔</span></td>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
-        </table>
-    </div>
+    <!-- Restaurant Details Section -->
+    <div id="restaurant-details"></div>
 </main>
 
 <script>
-    function toggleDetails(id) {
-        var details = document.getElementById(id);
-        if (details.style.display === 'block') {
-            details.style.display = 'none';
-        } else {
-            details.style.display = 'block';
+    // Restaurant data
+    const restaurants = [
+        {
+            name: "Restaurant 1",
+            myScore: 8,
+            herScore: 7,
+            address: "123 Main St, Knoxville, TN",
+            order: "I had steak, she had salad.",
+            image: "restaurant1.jpg",
+            atmosphere: "Great"
+        },
+        {
+            name: "Restaurant 2",
+            myScore: 9,
+            herScore: 8,
+            address: "456 Elm St, Knoxville, TN",
+            order: "I had pasta, she had pizza.",
+            image: "restaurant2.jpg",
+            atmosphere: "Good"
         }
+    ];
+
+    // Function to rank restaurants and display them in the table
+    function rankAndDisplayRestaurants() {
+        const tbody = document.querySelector('#restaurant-table tbody');
+        tbody.innerHTML = ''; // Clear table before inserting sorted rows
+
+        // Calculate combined score and sort restaurants by it
+        restaurants.forEach(r => r.combinedScore = r.myScore + r.herScore);
+        restaurants.sort((a, b) => b.combinedScore - a.combinedScore);
+
+        // Display sorted restaurants
+        restaurants.forEach((restaurant, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td><span class="toggle-details" onclick="showDetails('${restaurant.name}')">${restaurant.name}</span></td>
+                <td>${restaurant.myScore}/10</td>
+                <td>${restaurant.herScore}/10</td>
+                <td>${restaurant.combinedScore}/20</td>
+            `;
+            tbody.appendChild(row);
+        });
     }
+
+    // Function to display restaurant details
+    function showDetails(name) {
+        const restaurant = restaurants.find(r => r.name === name);
+        const detailsDiv = document.getElementById('restaurant-details');
+        
+        detailsDiv.innerHTML = `
+            <h3>${restaurant.name}</h3>
+            <p><strong>Address:</strong> <a href="https://maps.google.com?q=${restaurant.address}" target="_blank">${restaurant.address}</a></p>
+            <p><strong>What we ordered:</strong> ${restaurant.order}</p>
+            <img src="${restaurant.image}" alt="${restaurant.name} Image" style="width: 300px; height: auto;">
+            
+            <table class="atmosphere-table">
+                <tr>
+                    <td>Atmosphere</td>
+                    <td>Great</td>
+                    <td>Good</td>
+                    <td>Okay</td>
+                    <td>Meh</td>
+                    <td>Bad</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>${restaurant.atmosphere === 'Great' ? '<span class="checkmark">✔</span>' : ''}</td>
+                    <td>${restaurant.atmosphere === 'Good' ? '<span class="checkmark">✔</span>' : ''}</td>
+                    <td>${restaurant.atmosphere === 'Okay' ? '<span class="checkmark">✔</span>' : ''}</td>
+                    <td>${restaurant.atmosphere === 'Meh' ? '<span class="checkmark">✔</span>' : ''}</td>
+                    <td>${restaurant.atmosphere === 'Bad' ? '<span class="checkmark">✔</span>' : ''}</td>
+                </tr>
+            </table>
+        `;
+        detailsDiv.style.display = 'block';
+    }
+
+    // Initial ranking and display of restaurants
+    rankAndDisplayRestaurants();
 </script>
 
 </body>

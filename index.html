@@ -158,51 +158,53 @@
         const detailsDiv = document.getElementById('restaurant-details');
         
         detailsDiv.innerHTML = `
-            <h3>${restaurant.name}</h3>
-            <img src="${restaurant.image}" alt="${restaurant.name} Image" style="width: 300px; height: auto;">
-            <p><strong>Address:</strong> <a href="https://maps.google.com?q=${restaurant.address}" target="_blank">${restaurant.address}</a></p>
-
-            <!-- Kyle's details -->
-            <h3>Kyle:</h3>
-            <p><strong>Order:</strong> ${restaurant.myOrder}</p>
-            <p><strong>Atmosphere:</strong></p>
-            <table class="atmosphere-table">
-                <tr>
-                    <td>Great</td>
-                    <td>Good</td>
-                    <td>Okay</td>
-                    <td>Meh</td>
-                    <td>Bad</td>
-                </tr>
-                <tr>
-                    <td>${restaurant.myAtmosphere === 'Great' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.myAtmosphere === 'Good' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.myAtmosphere === 'Okay' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.myAtmosphere === 'Meh' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.myAtmosphere === 'Bad' ? '<span class="checkmark">✔</span>' : ''}</td>
-                </tr>
-            </table>
-
-            <!-- Amanda's details -->
-            <h3>Amanda:</h3>
-            <p><strong>Order:</strong> ${restaurant.herOrder}</p>
-            <p><strong>Atmosphere:</strong></p>
-            <table class="atmosphere-table">
-                <tr>
-                    <td>Great</td>
-                    <td>Good</td>
-                    <td>Okay</td>
-                    <td>Meh</td>
-                    <td>Bad</td>
-                </tr>
-                <tr>
-                    <td>${restaurant.herAtmosphere === 'Great' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.herAtmosphere === 'Good' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.herAtmosphere === 'Okay' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.herAtmosphere === 'Meh' ? '<span class="checkmark">✔</span>' : ''}</td>
-                    <td>${restaurant.herAtmosphere === 'Bad' ? '<span class="checkmark">✔</span>' : ''}</td>
-                </tr>
-            </table>
+            <div class="transparent-box">
+                <h3>${restaurant.name}</h3>
+                <img src="${restaurant.image}" alt="${restaurant.name} Image" style="width: 300px; height: auto;">
+                <p><strong>Address:</strong> <a href="https://maps.google.com?q=${restaurant.address}" target="_blank">${restaurant.address}</a></p>
+    
+                <!-- Kyle's details -->
+                <h3>Kyle:</h3>
+                <p><strong>Order:</strong> ${restaurant.myOrder}</p>
+                <p><strong>Atmosphere:</strong></p>
+                <table class="atmosphere-table">
+                    <tr>
+                        <td>Great</td>
+                        <td>Good</td>
+                        <td>Okay</td>
+                        <td>Meh</td>
+                        <td>Bad</td>
+                    </tr>
+                    <tr>
+                        <td>${restaurant.myAtmosphere === 'Great' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.myAtmosphere === 'Good' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.myAtmosphere === 'Okay' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.myAtmosphere === 'Meh' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.myAtmosphere === 'Bad' ? '<span class="checkmark">✔</span>' : ''}</td>
+                    </tr>
+                </table>
+    
+                <!-- Amanda's details -->
+                <h3>Amanda:</h3>
+                <p><strong>Order:</strong> ${restaurant.herOrder}</p>
+                <p><strong>Atmosphere:</strong></p>
+                <table class="atmosphere-table">
+                    <tr>
+                        <td>Great</td>
+                        <td>Good</td>
+                        <td>Okay</td>
+                        <td>Meh</td>
+                        <td>Bad</td>
+                    </tr>
+                    <tr>
+                        <td>${restaurant.herAtmosphere === 'Great' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.herAtmosphere === 'Good' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.herAtmosphere === 'Okay' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.herAtmosphere === 'Meh' ? '<span class="checkmark">✔</span>' : ''}</td>
+                        <td>${restaurant.herAtmosphere === 'Bad' ? '<span class="checkmark">✔</span>' : ''}</td>
+                    </tr>
+                </table>
+            </div>
         `;
         detailsDiv.style.display = 'block';
     }

@@ -44,11 +44,19 @@
             color: #4CAF50;
             text-decoration: underline;
         }
-        .checkboxes {
+        .atmosphere-table {
             margin-top: 10px;
+            border: 1px solid #ddd;
+            width: 50%;
         }
-        .checkboxes label {
-            margin-right: 15px;
+        .atmosphere-table td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        .checkmark {
+            color: green;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -86,14 +94,25 @@
         <p><strong>Address:</strong> <a href="https://maps.google.com?q=restaurant1+address" target="_blank">123 Main St, Knoxville, TN</a></p>
         <p><strong>What we ordered:</strong> I had steak, she had salad.</p>
         <img src="restaurant1.jpg" alt="Restaurant 1 Image" style="width: 300px; height: auto;">
-        <div class="checkboxes">
-            <p><strong>Atmosphere:</strong></p>
-            <label><input type="checkbox"> Great</label>
-            <label><input type="checkbox"> Good</label>
-            <label><input type="checkbox"> Okay</label>
-            <label><input type="checkbox"> Meh</label>
-            <label><input type="checkbox"> Bad</label>
-        </div>
+        
+        <table class="atmosphere-table">
+            <tr>
+                <td>Atmosphere</td>
+                <td>Great</td>
+                <td>Good</td>
+                <td>Okay</td>
+                <td>Meh</td>
+                <td>Bad</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><span class="checkmark">✔</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 
     <!-- Restaurant 2 Details -->
@@ -101,14 +120,25 @@
         <p><strong>Address:</strong> <a href="https://maps.google.com?q=restaurant2+address" target="_blank">456 Elm St, Knoxville, TN</a></p>
         <p><strong>What we ordered:</strong> I had pasta, she had pizza.</p>
         <img src="restaurant2.jpg" alt="Restaurant 2 Image" style="width: 300px; height: auto;">
-        <div class="checkboxes">
-            <p><strong>Atmosphere:</strong></p>
-            <label><input type="checkbox"> Great</label>
-            <label><input type="checkbox"> Good</label>
-            <label><input type="checkbox"> Okay</label>
-            <label><input type="checkbox"> Meh</label>
-            <label><input type="checkbox"> Bad</label>
-        </div>
+        
+        <table class="atmosphere-table">
+            <tr>
+                <td>Atmosphere</td>
+                <td>Great</td>
+                <td>Good</td>
+                <td>Okay</td>
+                <td>Meh</td>
+                <td>Bad</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td><span class="checkmark">✔</span></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
     </div>
 </main>
 

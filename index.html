@@ -105,7 +105,8 @@
             myScore: 8,
             herScore: 7,
             address: "123 Main St, Knoxville, TN",
-            order: "I had steak, she had salad.",
+            myOrder: "I had steak.",
+            herOrder: "she had salad.",
             image: "restaurant1.jpg",
             atmosphere: "Great"
         },
@@ -114,7 +115,8 @@
             myScore: 9,
             herScore: 8,
             address: "456 Elm St, Knoxville, TN",
-            order: "I had pasta, she had pizza.",
+            myOrder: "I had steak.",
+            herOrder: "she had salad.",
             image: "restaurant2.jpg",
             atmosphere: "Good"
         }
@@ -151,7 +153,8 @@
         detailsDiv.innerHTML = `
             <h3>${restaurant.name}</h3>
             <p><strong>Address:</strong> <a href="https://maps.google.com?q=${restaurant.address}" target="_blank">${restaurant.address}</a></p>
-            <p><strong>What we ordered:</strong> ${restaurant.order}</p>
+            <p><strong>My order:</strong> ${restaurant.myOrder}</p>
+            <p><strong>Amandas order:</strong> ${restaurant.herOrder}</p>
             <img src="${restaurant.image}" alt="${restaurant.name} Image" style="width: 300px; height: auto;">
             
             <table class="atmosphere-table">

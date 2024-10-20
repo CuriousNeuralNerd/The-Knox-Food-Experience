@@ -9,20 +9,30 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
+            background-image: url('background.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
         header {
-            background-color: #FF8200;
+            background-color: rgba(76, 175, 80, 0.8); /* Semi-transparent background */
             color: white;
             text-align: center;
             padding: 1em;
         }
+        main {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
         table {
-            width: 100%;
+            width: 80%; /* Adjust width to have space on the sides */
             border-collapse: collapse;
-            margin: 20px 0;
+            margin: 20px auto;
             font-size: 1.1em;
-            background-color: #fff;
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            border-radius: 10px;
+            overflow: hidden;
         }
         table th, table td {
             padding: 12px;
@@ -30,14 +40,15 @@
             text-align: left;
         }
         table th {
-            background-color: #f2f2f2;
+            background-color: rgba(242, 242, 242, 0.9); /* Slightly transparent header */
         }
         .restaurant-details {
             display: none;
             margin: 20px 0;
             padding: 20px;
-            background-color: #f9f9f9;
+            background-color: rgba(249, 249, 249, 0.9);
             border: 1px solid #ddd;
+            border-radius: 10px;
         }
         .toggle-details {
             cursor: pointer;
@@ -115,7 +126,7 @@
         tbody.innerHTML = ''; // Clear table before inserting sorted rows
 
         // Calculate combined score and sort restaurants by it
-        restaurants.forEach(r => r.combinedScore = r.myScore + r.herScore);
+        restaurants.forEach(r => r.combinedScore = (r.myScore + r.herScore)/2);
         restaurants.sort((a, b) => b.combinedScore - a.combinedScore);
 
         // Display sorted restaurants
@@ -124,9 +135,9 @@
             row.innerHTML = `
                 <td>${index + 1}</td>
                 <td><span class="toggle-details" onclick="showDetails('${restaurant.name}')">${restaurant.name}</span></td>
-                <td>${restaurant.myScore}/10</td>
-                <td>${restaurant.herScore}/10</td>
-                <td>${restaurant.combinedScore}/20</td>
+                <td>${restaurant.myScore}</td>
+                <td>${restaurant.herScore}</td>
+                <td>${restaurant.combinedScore}</td>
             `;
             tbody.appendChild(row);
         });

@@ -101,11 +101,11 @@
     // Restaurant data
     const restaurants = [
         {
-            name: "Restaurant 1",
-            image: "restaurant1.jpg",
-            myScore: 8,
-            herScore: 7,
-            address: "123 Main St, Knoxville, TN",
+            name: "KOKO Sips + Bites",
+            image: "imgs/koko_outside.jpg",
+            myScore: 8.8,
+            herScore: 7.6,
+            address: "8883 Town and Country Cir, Knoxville, TN 37923",
             myOrder: "I had steak.",
             herOrder: "she had salad.",
             myAtmosphere: "Good",
@@ -158,10 +158,10 @@
             <p><strong>Address:</strong> <a href="https://maps.google.com?q=${restaurant.address}" target="_blank">${restaurant.address}</a></p>
 
             <!-- Kyle's details -->
-            <p><strong>Kyle:</strong></p>
-            <p>Order: ${restaurant.myOrder}</p>
+            <h3>Kyle:</h3>
+            <p><strong>Order:</strong> ${restaurant.myOrder}</p>
+            <p><strong>Atmosphere:</strong></p>
             <table class="atmosphere-table">
-                <caption>Kyle's Atmosphere Rating</caption>
                 <tr>
                     <td>Great</td>
                     <td>Good</td>
@@ -179,10 +179,10 @@
             </table>
 
             <!-- Amanda's details -->
-            <p><strong>Amanda:</strong></p>
-            <p>Order: ${restaurant.herOrder}</p>
+            <h3>Amanda:</h3>
+            <p><strong>Order:</strong> ${restaurant.herOrder}</p>
+            <p><strong>Atmosphere:</strong></p>
             <table class="atmosphere-table">
-                <caption>Amanda's Atmosphere Rating</caption>
                 <tr>
                     <td>Great</td>
                     <td>Good</td>

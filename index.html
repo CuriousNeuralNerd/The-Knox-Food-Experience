@@ -149,6 +149,11 @@
                 const restaurant = restaurants.find(r => r.name === name);
                 const detailsDiv = document.getElementById('restaurant-details');
 
+                // Map guest scores to list items
+                const guestScoresHTML = restaurant.guestScores && restaurant.guestScores.length
+                    ? restaurant.guestScores.map(score => `<li>Guest Score: ${score}</li>`).join('')
+                    : '<li>No guest scores yet.</li>';
+
                 detailsDiv.innerHTML = `
                     <div class="transparent-box">
                         <h3>${restaurant.name}</h3>
@@ -196,6 +201,12 @@
                                 <td>${restaurant.herAtmosphere === 'Bad' ? '<span class="checkmark">✔</span>' : ''}</td>
                             </tr>
                         </table>
+
+                        <!-- Extra Guest Scores Section -->
+                        <h3>Extra Guest Scores</h3>
+                        <ul id="guest-scores-list">
+                            ${guestScoresHTML}
+                        </ul>
                     </div>
                 `;
                 detailsDiv.style.display = 'block';
@@ -209,4 +220,3 @@
 
 </body>
 </html>
-

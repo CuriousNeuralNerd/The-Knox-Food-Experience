@@ -8,7 +8,8 @@
         "myOrder": "I had steak.",
         "herOrder": "She had salad.",
         "myAtmosphere": "Good",
-        "herAtmosphere": "Great"
+        "herAtmosphere": "Great",
+        "guestScores": [8.2, 9.1, 7.5]
     },
     {
         "name": "Restaurant 2",
@@ -19,6 +20,7 @@
         "myOrder": "I had steak.",
         "herOrder": "She had salad.",
         "myAtmosphere": "Meh",
-        "herAtmosphere": "Good"
+        "herAtmosphere": "Good",
+        "guestScores": [7.8, 8.5, 8.0]
     }
 ]

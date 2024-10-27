@@ -1,0 +1,24 @@
+[
+    {
+        "name": "KOKO Sips + Bites",
+        "image": "imgs/koko_outside.jpg",
+        "myScore": 8.8,
+        "herScore": 7.6,
+        "address": "8883 Town and Country Cir, Knoxville, TN 37923",
+        "myOrder": "I had steak.",
+        "herOrder": "She had salad.",
+        "myAtmosphere": "Good",
+        "herAtmosphere": "Great"
+    },
+    {
+        "name": "Restaurant 2",
+        "image": "restaurant2.jpg",
+        "myScore": 9,
+        "herScore": 8,
+        "address": "456 Elm St, Knoxville, TN",
+        "myOrder": "I had steak.",
+        "herOrder": "She had salad.",
+        "myAtmosphere": "Meh",
+        "herAtmosphere": "Good"
+    }
+]

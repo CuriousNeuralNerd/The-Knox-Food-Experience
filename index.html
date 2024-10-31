@@ -128,7 +128,7 @@
         tbody.innerHTML = ''; // Clear table before inserting sorted rows
 
         // Calculate combined score and sort restaurants by it
-        restaurants.forEach(r => r.combinedScore = (r.myScore + r.herScore) / 2);
+        restaurants.forEach(r => r.combinedScore = ((r.myScore + r.herScore) / 2).toFixed(1));
         restaurants.sort((a, b) => b.combinedScore - a.combinedScore);
 
         // Display sorted restaurants
